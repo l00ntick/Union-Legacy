@@ -7,9 +7,8 @@ import haven.UI;
 import haven.Widget;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
-
-import org.mozilla.javascript.edu.emory.mathcs.backport.java.util.Arrays;
 
 public class JSInventory {
 	private int remote_id;
