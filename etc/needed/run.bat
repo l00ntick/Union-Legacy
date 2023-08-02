@@ -1,1 +1,1 @@
-java -Xms512m -Xmx512m -jar haven.jar moltke.seatribe.se 
+java -Xms512m -Xmx512m -jar haven.jar legacy.havenandhearth.com
