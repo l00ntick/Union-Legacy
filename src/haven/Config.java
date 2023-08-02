@@ -162,10 +162,10 @@ public class Config {
 			authserv = getprop("haven.authserv", null);
 			defserv = getprop("haven.defserv", null);
 			if (!(p = getprop("haven.resurl",
-					"http://www.havenandhearth.com/res/")).equals(""))
+					"http://legacy.havenandhearth.com/res/")).equals(""))
 				resurl = new URL(p);
 			if (!(p = getprop("haven.mapurl",
-					"http://www.havenandhearth.com/mm/")).equals(""))
+					"http://legacy.havenandhearth.com/mm/")).equals(""))
 				mapurl = new URL(p);
 			fullscreen = getprop("haven.fullscreen", "off").equals("on");
 			loadwaited = getprop("haven.loadwaited", null);

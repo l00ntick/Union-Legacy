@@ -26,12 +26,15 @@
 
 package haven;
 
+import java.util.*;
 import java.io.*;
 import java.net.*;
 import java.security.*;
 import java.security.cert.*;
 import java.security.cert.Certificate;
 import javax.net.ssl.*;
+import java.nio.channels.SocketChannel;
+import java.nio.channels.UnresolvedAddressException;
 
 public class SslHelper {
     private KeyStore creds, trusted;
@@ -108,6 +111,16 @@ public class SslHelper {
 	CertificateFactory fac = CertificateFactory.getInstance("X.509");
 	return(fac.generateCertificate(in));
     }
+	
+	public static Collection<? extends Certificate> loadX509s(InputStream in) throws IOException, CertificateException {
+	CertificateFactory fac = CertificateFactory.getInstance("X.509");
+	return(fac.generateCertificates(in));
+    }
+
+    public void trust(InputStream in) throws IOException, CertificateException {
+	for(Certificate cert : loadX509s(in))
+	    trust(cert);
+    }
     
     public synchronized void loadCredsPkcs12(InputStream in, char[] pw) throws IOException, CertificateException {
 	clear();
@@ -149,9 +162,21 @@ public class SslHelper {
     }
     
     public SSLSocket connect(String host, int port) throws IOException {
-	Socket sk = new HackSocket();
-	sk.connect(new InetSocketAddress(host, port));
-	return(connect(sk, host, port, true));
+	IOException lerr = null;
+	for(InetAddress haddr : InetAddress.getAllByName(host)) {
+	    try {
+		Socket sk = new HackSocket();
+		sk.connect(new InetSocketAddress(haddr, port), 5000);
+		return(connect(sk, host, port, true));
+	    } catch(IOException e) {
+		if(lerr != null)
+		    e.addSuppressed(lerr);
+		lerr = e;
+	    }
+	}
+	if(lerr != null)
+	    throw(lerr);
+	throw(new UnknownHostException(host));
     }
     
     public boolean hasCreds() {
