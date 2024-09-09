@@ -1209,9 +1209,12 @@ public class MapView extends Widget implements DTarget, Console.Directory {
 							if (name.contains(pp.fst) && !name.contains("/cdv")) {
 								if (name.contains("herbs") && Config.drawIcons) {
 									String tmp;
-									if (name.contains("mussel")) {
+									if (name.contains("mussel") || name.contains("feldspar")) {
 										// маму Лофтара ебал кароч
 										tmp = name.replace("terobjs/herbs", "invobjs");
+										if (tmp.contains("feldspar")) {
+											tmp = tmp.replace("feldspar", "stone-feldspar");
+										}
 									} else {
 										tmp = name.replace("terobjs", "invobjs");
 									}

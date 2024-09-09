@@ -1303,12 +1303,16 @@ public class Resource implements Comparable<Resource>, Prioritized,
 		
 		// UGLY SCENTS HACK
 		if (Config.no_scent_smoke && name.contains("gfx/terobjs/clue")) {
-			System.out.println("clue");
+			if (Config.showDebug) {
+				System.out.println("clue");
+			}
 			for (Layer l : layers) {
 				System.out.println(l);
 				if (!(l instanceof CodeEntry)) {
 					l.init();
-					System.out.println("inited");
+					if (Config.showDebug) {
+						System.out.println("inited");
+					}
 				}
 			}
 		} else {
