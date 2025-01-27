@@ -63,7 +63,7 @@ SurfMapType.prototype.getTile = function(coord, zoom, ownerDocument) {
   for(var xi=0; xi<factor; xi++) {
     for(var yi=0; yi<factor; yi++) {
      var div_in = ownerDocument.createElement('DIV'); 
-     var url = 'map/' + currentSession + '/tile_' + (coord.x*factor+xi) + '_' + (coord.y*factor+yi) + '.png';
+     var url = 'map/' + currentSession + '/tile_' + ((coord.x*factor+xi) > 350 ? (coord.x*factor+xi) - 262144 : (coord.x*factor+xi)) + '_' + (coord.y*factor+yi) + '.png';
      div_in.style.width = this.tileSize.width/factor + 'px';
      div_in.style.height = this.tileSize.height/factor + 'px';
      div_in.style.backgroundImage="url('"+url+"')";
@@ -75,15 +75,15 @@ SurfMapType.prototype.getTile = function(coord, zoom, ownerDocument) {
     }
   }
   var div_sp = ownerDocument.createElement('DIV'); 
-  div_sp.innerHTML = "<span class=\"coords\">("+coord.x*factor+", "+coord.y*factor+")</span>";
+  div_sp.innerHTML = "<span class=\"coords\">("+((coord.x*factor) > 350 ? (coord.x*factor) - 262144 : (coord.x*factor))+", "+coord.y*factor+")</span>";
   div_sp.style.position="absolute";
   div.appendChild(div_sp);
 
   return div;
 };
 
-SurfMapType.prototype.name = "Поверхность";
-SurfMapType.prototype.alt = "Карта поверхности";
+SurfMapType.prototype.name = "РџРѕРІРµСЂС…РЅРѕСЃС‚СЊ";
+SurfMapType.prototype.alt = "РљР°СЂС‚Р° РїРѕРІРµСЂС…РЅРѕСЃС‚Рё";
 
 function CaveMapType() {
 }
@@ -103,7 +103,7 @@ CaveMapType.prototype.getTile = function(coord, zoom, ownerDocument) {
   for(var xi=0; xi<factor; xi++) {
     for(var yi=0; yi<factor; yi++) {
      var div_in = ownerDocument.createElement('DIV'); 
-     var url = 'cave/' + currentSessionC + '/tile_' + (coord.x*factor+xi) + '_' + (coord.y*factor+yi) + '.png';
+     var url = 'cave/' + currentSessionC + '/tile_' + ((coord.x*factor+xi) > 350 ? (coord.x*factor+xi) - 262144 : (coord.x*factor+xi)) + '_' + (coord.y*factor+yi) + '.png';
      div_in.style.width = this.tileSize.width/factor + 'px';
      div_in.style.height = this.tileSize.height/factor + 'px';
      div_in.style.backgroundImage="url('"+url+"')";
@@ -115,19 +115,19 @@ CaveMapType.prototype.getTile = function(coord, zoom, ownerDocument) {
     }
   }
   var div_sp = ownerDocument.createElement('DIV'); 
-  div_sp.innerHTML = "<span class=\"coords\">("+coord.x*factor+", "+coord.y*factor+")</span>";
+  div_sp.innerHTML = "<span class=\"coords\">("+((coord.x*factor) > 350 ? (coord.x*factor) - 262144 : (coord.x*factor))+", "+coord.y*factor+")</span>";
   div_sp.style.position="absolute";
   div.appendChild(div_sp);
 
   return div;
 };
 
-CaveMapType.prototype.name = "Пещеры";
-CaveMapType.prototype.alt = "Карта пещер";
+CaveMapType.prototype.name = "РџРµС‰РµСЂС‹";
+CaveMapType.prototype.alt = "РљР°СЂС‚Р° РїРµС‰РµСЂ";
 
 
-var MY_MAPTYPE_ID_S = 'Поверхность';
-var MY_MAPTYPE_ID_C = 'Пещеры';
+var MY_MAPTYPE_ID_S = 'РџРѕРІРµСЂС…РЅРѕСЃС‚СЊ';
+var MY_MAPTYPE_ID_C = 'РџРµС‰РµСЂС‹';
 
 
 function initialize() {
