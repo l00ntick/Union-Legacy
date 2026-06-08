@@ -854,7 +854,10 @@ public class Session {
 	}
 
 	public void close() {
+		MainFrame.instance.setTitle(null);
 		Config.render_enable = true;
+		//ticker.interrupt();
+		rworker.interrupt();
 		sworker.interrupt();
 	}
 
