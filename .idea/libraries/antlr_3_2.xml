@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="antlr-3.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/antlr-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gluegen-rt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jnlp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jogg.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jogl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jorbis.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/js-14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tools.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/tools.jar!/" />
+    </SOURCES>
+  </library>
+</component>
