@@ -1,0 +1,87 @@
+﻿Change log
+----------------
+01.02.2017
+* Added server Grid vision (press shift + g), it will show your field of view and divide it on several squares which will show you tree's field of terraform.
+* Removed LogIn.jbot, you can delete it, client will reboot without it.
+* Fixed all problems with alt-transfering (like with mussels etc).
+* Fixed pathfinder working with flotsams.
+* Fixed client title (now it will write current char name in title even if you login by using bot and will remove char name from title when you will logout).
+
+
+
+
+
+
+ 08.12.2016
+ * Fixed boat pathfinder, now you can leave boat.
+ * Added automatical belief mover to beliefs menu.
+ * Added new numen window.
+ * Added overview window (new options in addons).
+ * Save minimaps option moved to camera menu (now it names "Disable map saving").
+ * Added auto hf/village port (new options in general).
+ * Added labels (like perc x exp, int x stealth, sew x dext etc) under fep bar.
+ * Added new fep bar window (use can turn it on/off in addons menu).
+ * Now client will save showAvatar option in config file (in prev builds when you start client, it hide avatar).
+
+
+ 
+
+ 05.12.2016
+ * Fixed alt-transefring for filled buckets and cheese trays.
+ * Added autoaggro (if it's active, it will aggro all unknown and red guys).
+ * Returned default menu.
+ * Fixed autodrinker (if you'll press right mouse button on object or press left button with using actions (like lift etc), client will start pathfinder in order to avoid movement stop).
+
+
+ 
+ 03.12.2016
+ * Added HL option button (in this menu you can choose what you want to highlight).
+ * Highlight working was changed, so you can delete your haven.ini from config folder.
+ * Added herbs, kritter highligth.
+ * Added mmap icons for all highlight objects.
+ * Returned toggle simple map button, fixed p/v claims buttons tooltips. 
+ * Changed minimap cellar/mine tile color (from pink to gray).
+ * Fixed pathfider: now it can work with all cursors (destroy, lift, repair etc...), place objects, make signs and go inside house even if player is staying behind it.
+ * Added autodrinker.
+ * Added qwerty toolbar.
+ * Toolbars working was changed, so you can delete your toolbars.conf from config folder.
+ * Added show checkboxes for all tollbars (you can choose it in Addons options menu).
+ * Inventory.getItems and .getEqualItems were fixed (there was bug with those functions, randomly it could say NullPointerException and finish script, now if will be null, it will return null).
+ * Added strings for weapons and armor/clothes (like str, melee, int etc).
+ 
+
+ 30.11.2016
+ * Added mmap-world click (if you'll click on the mmap and press ctrl, char will go to this pos).
+ * Added folders for belts and configs.
+ * Added custom sounds (timer, white and red point on the map, troll, bear, ram, flotsam, bluebell, pearl, aggro, death).
+ * Added LP/Hour string to curios and study window.
+ * Added lock button to study window.
+ * Changed curio.conf file (fixed some curio lps, times and weights)
+ * Added Items prep time (cheese, leaves etc)
+ * Changed minimap view distance.
+ * Female silkmoth now has pink color.
+ 
+
+ 26.11.2016
+ * Added new Hide options: idol and mine support.
+ * Added Ram highlight.
+ * Returned slen panel.
+ * Ugly LogOut freeze fix: if you'll get freeze, client will reboot, if you was running script, client will log in on last char and run this script again.
+ * Do NOT delete LogIn.jbot from your scripts folder.
+ 
+
+ 14.11.2016
+ * Added "Show Changelog" button to Login Screen. 
+ * jPFClick and jPFMove were updated with new pathfinder.
+ * Added new method jPFOffsetMove that works with Offset.
+ * No need to use waitStartMove and waitPFEndMove after these methods.
+ 
+ 07.11.2016
+ * Added pathfinder.
+ * Pclaim hitbox was removed.
+ * Added custom Neg for resources.
+ * Added Addons option button.
+ 
+ 01.11.2016
+ * Added pickup script, liquid meters.
+ * Alt + Right click on items - Transfers selected items with that exact name (i.e. items that are exactly the same) from inventory to container or vice versa.
