@@ -30,6 +30,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.lang.Thread.UncaughtExceptionHandler;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import union.APXUtils;
@@ -37,8 +39,7 @@ import union.APXUtils;
 @SuppressWarnings("serial")
 public class MainFrame extends Frame implements Runnable, FSMan {
 	public static final String hhVersion = "7.2f";
-	public static final String date = "13.08.2026";
-	public static final String TITLE = "UNION v"+hhVersion+" (Loontick Edition "+date+")";
+	public static final String TITLE = "UNION v" + hhVersion + " (Loontick Edition " + getCurrentDate() + ")";
 	public static HavenPanel havenPanel;
 	ThreadGroup g;
 	DisplayMode fsmode = null, prefs = null;
@@ -58,6 +59,13 @@ public class MainFrame extends Frame implements Runnable, FSMan {
 					.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
 		}
+	}
+
+	private static String getCurrentDate() {
+		LocalDate date = LocalDate.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+
+		return date.format(formatter);
 	}
 
 	DisplayMode findmode(int w, int h) {

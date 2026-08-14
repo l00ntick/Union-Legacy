@@ -123,7 +123,7 @@ public class Resource implements Comparable<Resource>, Prioritized,
 	}
 	
 	private Resource(String name, int ver) {
-		this.name = name;
+		this.name = fixName(name);
 		this.ver = ver;
 		error = null;
 		loading = true;
@@ -133,11 +133,15 @@ public class Resource implements Comparable<Resource>, Prioritized,
 	}
 	
 	public Resource(String nm) {
-		name = nm;
+		name = fixName(nm);
 		ver = 666;
 		error = null;
 		loading = false;
 		skip_caching = true;
+	}
+
+	private static String fixName(String name) {
+		return name.replace('\\', '/');
 	}
 	
 	public static Resource fromFile(String name) {
