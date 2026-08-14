@@ -89,6 +89,7 @@ public class JSInventory {
 					if (itemmasks.length > 0 && itemmasks[0].equals(""))
 						items.add(new JSItem(UI.instance.getId(buf)));
 					else {
+						String res = buf.GetResName();
 						boolean include = false;
 						for (String iname : itemmasks) {
 							/*boolean exclude = iname.startsWith("!");
@@ -96,14 +97,13 @@ public class JSInventory {
 								items.add(new JSItem(UI.instance.getId(buf)));
 								break;
 							}*/
-							String res = buf.GetResName();
 							if (iname.startsWith("!")) {
 								if (res.contains(iname.substring(1))) {
 									include = false;
 									break;
 								}
-							} else {
-								include = res.contains(iname);
+							} else if (res.contains(iname)) {
+								include = true;
 							}
 						}
 						if (include) {
@@ -140,6 +140,7 @@ public class JSInventory {
 					if (itemmasks.length > 0 && itemmasks[0].equals(""))
 						items.add(new JSItem(UI.instance.getId(buf)));
 					else {
+						String res = buf.GetResName();
 						boolean include = false;
 						for (String iname : itemmasks) {
 							/*boolean exclude = iname.startsWith("!");
@@ -147,14 +148,13 @@ public class JSInventory {
 								items.add(new JSItem(UI.instance.getId(buf)));
 								break;
 							}*/
-							String res = buf.GetResName();
 							if (iname.startsWith("!")) {
 								if (res.equalsIgnoreCase(iname.substring(1))) {
 									include = false;
 									break;
 								}
-							} else {
-								include = res.equalsIgnoreCase(iname);
+							} else if (res.contains(iname)) {
+								include = true;
 							}
 						}
 						if (include) {
